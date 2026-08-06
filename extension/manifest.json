@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "AI Form Copilot — Autofill Anywhere",
+  "version": "1.0.0",
+  "description": "Intelligent AI-powered form autofill Chrome extension for Workday, Greenhouse, Lever, Ashby, Typeform, startup, and custom web forms.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/index.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_title": "AI Form Copilot"
+  },
+  "commands": {
+    "trigger_autofill": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "Command+Shift+F"
+      },
+      "description": "Fill form with active profile"
+    }
+  }
+}
