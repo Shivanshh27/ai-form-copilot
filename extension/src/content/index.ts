@@ -127,8 +127,8 @@ function extractFormFields() {
 }
 
 function generateCSSSelector(el: HTMLElement): string {
-  if (el.id) return `#${el.id}`;
-  if ((el as HTMLInputElement).name) return `[name="${(el as HTMLInputElement).name}"]`;
+  if (el.id) return `#${CSS.escape(el.id)}`;
+  if ((el as HTMLInputElement).name) return `[name="${CSS.escape((el as HTMLInputElement).name)}"]`;
   return el.tagName.toLowerCase();
 }
 

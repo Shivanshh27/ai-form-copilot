@@ -1,5 +1,8 @@
 import os
-from pydantic_settings import BaseSettings
+try:
+    from pydantic_settings import BaseSettings
+except ImportError:
+    from pydantic import BaseSettings # Fallback for Pydantic v1
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "AI Form Copilot Backend"
