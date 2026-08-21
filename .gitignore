@@ -37,3 +37,7 @@ uploads/
 *.swo
 .DS_Store
 Thumbs.db
+
+# Study Files
+study*
+
